@@ -26,7 +26,7 @@ function analyzeAccessibility() {
 function checkAccessibilityIssue(element) {
   const curr = element;
   if (curr.tagName.toLowerCase() === "img") {
-    console.log(curr.parentElement);
+    console.log(curr.parentElement.position);
 
     const div = document.createElement("div");
     div.textContent = "This image is missing an alt attribute.";

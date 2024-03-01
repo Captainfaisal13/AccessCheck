@@ -2,8 +2,21 @@
   "manifest_version": 3,
   "name": "AccessCheck",
   "version": "0.1",
-  "description": "A simple Chrome extension with a popup",
+  "description": "Check web accessibility",
   "action": {
     "default_popup": "public/popup.html"
+  },
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+
+      "js": ["public/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
   }
 }

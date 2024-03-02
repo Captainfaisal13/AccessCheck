@@ -9,14 +9,10 @@
   "permissions": ["activeTab"],
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
+      "matches": ["<all_urls>"],
 
       "js": ["public/content.js"],
       "run_at": "document_idle"
     }
-  ],
-
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
-  }
+  ]
 }

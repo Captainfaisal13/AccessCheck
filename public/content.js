@@ -181,7 +181,20 @@ function checkAccessibilityIssue(element) {
   // Add some content to the div
   divElement.innerText = message;
   // divElement.style.color = "red";
+  var arrowElement = document.createElement("div");
+  arrowElement.style.top = "-1px";
+  arrowElement.style.left = "-4px";
+  arrowElement.style.borderRight = "15px solid transparent";
+  arrowElement.style.borderBottom = "15px solid #2B2B2C";
+  arrowElement.style.transform = "rotate(45deg)";
+  // arrowElement.style.left = "10px";
+  arrowElement.style.zIndex = "1000";
+  arrowElement.style.position = "absolute";
 
+  arrowElement.classList.add("arrow");
+
+  // Append the arrow element to the div
+  divElement.appendChild(arrowElement);
   // div.textContent = "This image is missing an alt attribute.";
   document.body.appendChild(divElement);
   // Style the div as per your requirement
@@ -210,12 +223,16 @@ function clearResults() {
   const accessibilityIssues = document.querySelectorAll(".accessibility-issue");
   accessibilityIssues.forEach((issue) => issue.remove());
 }
-
-analyzeAccessibility();
-// document.addEventListener("DOMContentLoaded", function () {});
-
 // on window resize
 window.addEventListener("resize", () => {
   clearResults();
   analyzeAccessibility();
+});
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log(message);
+  if (message.type == "analyze") {
+    analyzeAccessibility();
+    sendResponse("Analysis Complete!");
+  }
 });

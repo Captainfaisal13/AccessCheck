@@ -165,11 +165,19 @@ function checkAccessibilityIssue(element) {
 
   // Set the right attribute
   divElement.style.top = rect.bottom + "px";
-  divElement.style.backgroundColor = "#ff474c";
-  divElement.style.borderWidth = "1px";
-  divElement.style.padding = "2px 4px";
+  divElement.style.borderColor = "#B31312";
+  divElement.style.backgroundColor = "#2B2A4C";
+  divElement.style.borderWidth = "2px";
+  divElement.style.color = "#EA906C";
+  divElement.style.padding = "6px";
   divElement.style.borderRadius = "8px";
   divElement.classList.add("accessibility-issue");
+  divElement.style.zIndex = "1000";
+  divElement.style.fontSize = "12px";
+  divElement.style.fontWeight = "bold";
+  divElement.style.maxWidth = "300px";
+  //   divElement.className += " bg-[#ff474c] text-red-400";
+
   // Add some content to the div
   divElement.innerText = message;
   // divElement.style.color = "red";

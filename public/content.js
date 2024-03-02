@@ -202,12 +202,16 @@ function clearResults() {
   const accessibilityIssues = document.querySelectorAll(".accessibility-issue");
   accessibilityIssues.forEach((issue) => issue.remove());
 }
-
-analyzeAccessibility();
-// document.addEventListener("DOMContentLoaded", function () {});
-
 // on window resize
 window.addEventListener("resize", () => {
   clearResults();
   analyzeAccessibility();
+});
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log(message);
+  if (message.type == "analyze") {
+    analyzeAccessibility();
+    sendResponse("Analysis Complete!");
+  }
 });

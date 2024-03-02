@@ -165,15 +165,29 @@ function checkAccessibilityIssue(element) {
 
   // Set the right attribute
   divElement.style.top = rect.bottom + "px";
-  divElement.style.backgroundColor = "#ff474c";
+  divElement.style.color = "white";
+  divElement.style.backgroundColor = "#2B2B2C";
   divElement.style.borderWidth = "1px";
-  divElement.style.padding = "2px 4px";
+  divElement.style.padding = "4px 6px";
   divElement.style.borderRadius = "8px";
   divElement.classList.add("accessibility-issue");
   // Add some content to the div
   divElement.innerText = message;
   // divElement.style.color = "red";
+  var arrowElement = document.createElement("div");
+  arrowElement.style.top = "-1px";
+  arrowElement.style.left = "-4px";
+  arrowElement.style.borderRight = "15px solid transparent";
+  arrowElement.style.borderBottom = "15px solid #2B2B2C";
+  arrowElement.style.transform = "rotate(45deg)";
+  // arrowElement.style.left = "10px";
+  arrowElement.style.zIndex = "1000";
+  arrowElement.style.position = "absolute";
 
+  arrowElement.classList.add("arrow");
+
+  // Append the arrow element to the div
+  divElement.appendChild(arrowElement);
   // div.textContent = "This image is missing an alt attribute.";
   document.body.appendChild(divElement);
   // Style the div as per your requirement

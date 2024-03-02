@@ -170,7 +170,7 @@ function checkAccessibilityIssue(element) {
   divElement.style.borderWidth = "2px";
   divElement.style.color = "#EA906C";
   divElement.style.padding = "6px";
-  divElement.style.borderRadius = "8px";
+  divElement.style.borderRadius = "0px 8px 8px 8px";
   divElement.classList.add("accessibility-issue");
   divElement.style.zIndex = "1000";
   divElement.style.fontSize = "12px";
@@ -181,20 +181,22 @@ function checkAccessibilityIssue(element) {
   // Add some content to the div
   divElement.innerText = message;
   // divElement.style.color = "red";
-  var arrowElement = document.createElement("div");
-  arrowElement.style.top = "-1px";
-  arrowElement.style.left = "-4px";
-  arrowElement.style.borderRight = "15px solid transparent";
-  arrowElement.style.borderBottom = "15px solid #2B2B2C";
-  arrowElement.style.transform = "rotate(45deg)";
-  // arrowElement.style.left = "10px";
-  arrowElement.style.zIndex = "1000";
-  arrowElement.style.position = "absolute";
+  //   var arrowElement = document.createElement("div");
+  //   arrowElement.style.top = "-2px";
+  //   arrowElement.style.left = "-2px";
+  //   arrowElement.style.borderRight = "10px solid transparent";
+  //   arrowElement.style.borderBottom = "10px solid #B31312";
+  //   arrowElement.style.transform = "rotate(90deg)";
+  //   // arrowElement.style.left = "10px";
+  //   arrowElement.style.zIndex = "1001";
+  //   arrowElement.style.position = "absolute";
 
-  arrowElement.classList.add("arrow");
+  //   arrowElement.classList.add("arrow");
 
   // Append the arrow element to the div
-  divElement.appendChild(arrowElement);
+  //   arrowElement.style.transform = "rotate(45deg)";
+
+  //   divElement.appendChild(arrowElement);
   // div.textContent = "This image is missing an alt attribute.";
   document.body.appendChild(divElement);
   // Style the div as per your requirement
